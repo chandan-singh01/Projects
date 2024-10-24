@@ -1,0 +1,56 @@
+﻿@page
+@model NorthwindProject.Views.Home.InsertAnEmployeeFormModel
+@{
+}
+<h2>Insert a New Employee</h2>
+
+<form asp-controller="home" asp-action="InsertAnEmployee" method="post">
+
+    Last Name <br />
+    <input type="text" id="LastName" name="LastName" required /> <br />
+
+    First Name <br />
+    <input type="text" id="FirstName" name="FirstName" required/> <br />
+
+    Title <br />
+    <input type="text" id="Title" name="Title" required/> <br />
+
+    Title of Courtesy <br />
+    <input type="text" id="TitleOfCourtesy" name="TitleOfCourtesy" required/> <br />
+
+    Birth Date <br />
+    <input type="text" id="BirthDate" name="BirthDate" required/> <br />
+
+    Hire Date <br />
+    <input type="text" id="HireDate" name="HireDate" required/> <br />
+
+    Address <br />
+    <input type="text" id="Address" name="Address" required /> <br />
+
+    City <br />
+    <input type="text" id="City" name="City" required/> <br />
+
+    Region <br />
+    <input type="text" id="Region" name="Region" required/> <br />
+
+    Postal Code <br />
+    <input type="text" id="PostalCode" name="PostalCode" required/> <br />
+
+    Country <br />
+    <input type="text" id="Country" name="Country" required/> <br />
+
+    Home Phone <br />
+    <input type="text" id="HomePhone" name="HomePhone" required/> <br />
+
+    Extension <br />
+    <input type="text" id="Extension" name="Extension" required/> <br />
+
+    Notes <br />
+    <input type="text" id="Notes" name="Notes" required/> <br />
+
+    <br /><br />
+
+    <input type="submit" />
+    <input type="reset" />
+
+</form>

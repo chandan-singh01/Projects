@@ -1,0 +1,61 @@
+﻿@page
+@model NorthwindProject.Views.Home.InsertACustomerFormModel
+@{
+}
+<h2>Insert a New Customer</h2>
+
+<form action="InsertACustomer" method="Post" onsubmit="return validatePhone()">
+    Customer Id <br />
+    <input type="text" name="customerId" required/> <br />
+
+    Company Name <br />
+    <input type="text" name="companyName" required/> <br />
+
+    Contact Name <br />
+    <input type="text" name="contactName" required/> <br />
+
+    Contact Title <br />
+    <input type="text" name="contactTitle" required /> <br />
+
+    Address <br />
+    <input type="text" name="address" required/> <br />
+
+    City <br />
+    <input type="text" name="city" required /> <br />
+
+    Region <br />
+    <input type="text" name="region" required/> <br />
+
+    Postal Code <br />
+    <input type="text" name="postalCode" required /> <br />
+
+    Country <br />
+    <input type="text" name="country" required/> <br />
+
+    Phone <br />
+    <input type="text" id="phone" name="phone" required /> <br />
+    <span id="phoneError" style="color: red;"></span> <br />
+
+    Fax <br />
+    <input type="text" name="fax" required/> <br />
+
+    <br />
+    <input type="submit" /> <input type="reset" />
+</form>
+
+
+<script>
+    function validatePhone() {
+        var phoneInput = document.getElementById('phone');
+        var errorText = document.getElementById('phoneError');
+        var phonePattern = /\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/; // Example pattern, adjust as needed
+        errorText.textContent = ''; // Clear previous errors
+
+        if (!phonePattern.test(phoneInput.value)) {
+            errorText.textContent = 'Invalid phone number format. Expected format: 123-456-7890 or (123) 456-7890';
+            return false; // Prevent form submission
+        }
+
+        return true; // Allow form submission
+    }
+</script>

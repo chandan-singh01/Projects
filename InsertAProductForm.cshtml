@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Insert a New Product</title>
+    <style>
+        /* CSS styles for form */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 60px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 49%;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+            input[type="submit"]:hover,
+            input[type="reset"]:hover {
+                background-color: #0056b3;
+            }
+
+        input[type="submit"] {
+            float: left;
+        }
+
+        input[type="reset"] {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <h2>Insert a New Product</h2>
+
+    <form action="InsertAProduct" method="Post">
+        <!-- Product Name -->
+        <label for="productName">Product Name</label><br />
+        <input type="text" id="productName" name="productName" required /><br />
+
+        <!-- Supplier Id -->
+        <label for="supplierId">Supplier Id</label><br />
+        <select id="supplierId" name="supplierId" required>
+            @foreach (var s in ViewBag.ListOfSuppliers)
+            {
+                <option value="@s.SupplierId"> @s.SupplierId @s.CompanyName </option>
+            }
+        </select><br /><br />
+
+        <!-- Category Id -->
+        <label for="categoryId">Category Id</label><br />
+        <select id="categoryId" name="categoryId" required>
+            @foreach (var c in ViewBag.ListOfCategories)
+            {
+                <option value="@c.CategoryId"> @c.CategoryId @c.CategoryName </option>
+            }
+        </select><br /><br />
+
+        <!-- Unit Price -->
+        <label for="unitPrice">Unit Price</label><br />
+        <input type="text" id="unitPrice" name="unitPrice" required /><br /><br />
+
+        <!-- Submit and Reset Buttons -->
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Reset" />
+    </form>
+</body>
+</html>

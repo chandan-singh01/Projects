@@ -1,0 +1,128 @@
+﻿@page
+@model NorthwindProject.Views.Home.GetOrdersModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <!-- Add any additional CSS links if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <div class="container mt-3">
+        <!-- Filter Button -->
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterOptions" aria-expanded="false" aria-controls="filterOptions">
+            Filter
+        </button>
+        <!-- Filter Form (Collapsed by default) -->
+        <div class="collapse" id="filterOptions">
+            <form method="get" action="FilterOrders" class="mb-3">
+                <h3>Filter Orders</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="shipNameInput" class="form-label">Ship Name</label>
+                            <input type="text" class="form-control" id="shipNameInput" name="shipName" placeholder="Enter ship name">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="shipAddressInput" class="form-label">Ship Address</label>
+                            <input type="text" class="form-control" id="shipAddressInput" name="shipAddress" placeholder="Enter ship address">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="shipCityInput" class="form-label">Ship City</label>
+                            <input type="text" class="form-control" id="shipCityInput" name="shipCity" placeholder="Enter ship city">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="shipRegionInput" class="form-label">Ship Region</label>
+                            <input type="text" class="form-control" id="shipRegionInput" name="shipRegion" placeholder="Enter ship region">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="shipPostalCodeInput" class="form-label">Ship Postal Code</label>
+                            <input type="text" class="form-control" id="shipPostalCodeInput" name="shipPostalCode" placeholder="Enter ship postal code">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="shipCountryInput" class="form-label">Ship Country</label>
+                            <input type="text" class="form-control" id="shipCountryInput" name="shipCountry" placeholder="Enter ship country">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-success">Apply</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Order Id</th>
+                    <th>Customer Id</th>
+                    <th>Employee Id</th>
+                    <th>Order Date</th>
+                    <th>Required Date</th>
+                    <th>Shipped Date</th>
+                    <th>Ship Via</th>
+                    <th>Freight</th>
+                    <th>Ship Name</th>
+                    <th>Ship Address</th>
+                    <th>Ship City</th>
+                    <th>Ship Region</th>
+                    <th>Ship Postal Code</th>
+                    <th>Ship Country</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in ViewBag.ListOfOrders)
+                {
+                    <tr>
+                        <td>@order.OrderId</td>
+                        <td>@order.CustomerId</td>
+                        <td>@order.EmployeeId</td>
+                        <td>@order.OrderDate</td>
+                        <td>@order.RequiredDate</td>
+                        <td>@order.ShippedDate</td>
+                        <td>@order.ShipVia</td>
+                        <td>@order.Freight</td>
+                        <td>@order.ShipName</td>
+                        <td>@order.ShipAddress</td>
+                        <td>@order.ShipCity</td>
+                        <td>@order.ShipRegion</td>
+                        <td>@order.ShipPostalCode</td>
+                        <td>@order.ShipCountry</td>
+                        <td>
+                            <a href="UpdateAnOrderForm?orderId=@order.OrderId" class="btn btn-outline-primary d-flex align-items-center justify-content-center">
+                                <i class="fa-solid fa-pen-to-square me-2"></i>Update
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add any additional JavaScript scripts if needed -->
+</body>
+</html>

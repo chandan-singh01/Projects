@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="container mt-3">
+        <!-- Filter Button -->
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterOptions" aria-expanded="false" aria-controls="filterOptions">
+            Filter
+        </button>
+        <!-- Filter Form (Collapsed by default) -->
+        <div class="collapse" id="filterOptions">
+            <form method="get" action="FilterCategories" class="mb-3">
+                <h3>Filter Categories</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="categoryNameInput" class="form-label">Category Name</label>
+                            <input type="text" class="form-control" id="categoryNameInput" name="categoryName" placeholder="Enter category name">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="categoryDescriptionInput" class="form-label">Category Description</label>
+                            <input type="text" class="form-control" id="categoryDescriptionInput" name="categoryDescription" placeholder="Enter category description">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-success">Apply</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Category ID</th>
+                    <th>Category Name</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in ViewBag.ListOfCategories)
+                {
+                    <tr>
+                        <td>@c.CategoryId</td>
+                        <td>@c.CategoryName</td>
+                        <td>@c.Description</td>
+                        <td>
+                            <a href="UpdateACategoryForm?categoryId=@c.CategoryId" class="btn btn-outline-primary">
+                                <i class="fa-solid fa-pen-to-square"></i> Update
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+﻿@page
+@model NorthwindProject.Views.Home.GetEmployeesModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+    <!-- Add any additional CSS links if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+    <div class="container mt-3">
+        <!-- Filter Button -->
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterOptions" aria-expanded="false" aria-controls="filterOptions">
+            Filter
+        </button>
+        <!-- Filter Form (Collapsed by default) -->
+        <div class="collapse" id="filterOptions">
+            <form method="get" action="FilterEmployees" class="mb-3">
+                <h3>Filter Employees</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="lastNameInput" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastNameInput" name="lastName" placeholder="Enter last name">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="firstNameInput" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstNameInput" name="firstName" placeholder="Enter first name">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="titleInput" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="titleInput" name="title" placeholder="Enter title">
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more filter options as needed -->
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-success">Apply</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Employee Id</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Title</th>
+                    <th>Title of Courtesy</th>
+                    <th>Birth Date</th>
+                    <th>Hire Date</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Region</th>
+                    <th>Postal Code</th>
+                    <th>Country</th>
+                    <th>Home Phone</th>
+                    <th>Extension</th>
+                    <th>Notes</th>
+                    <th>Reports To</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in ViewBag.ListOfEmployees)
+                {
+                    <tr>
+                        <td>@employee.EmployeeId</td>
+                        <td>@employee.LastName</td>
+                        <td>@employee.FirstName</td>
+                        <td>@employee.Title</td>
+                        <td>@employee.TitleOfCourtesy</td>
+                        <td>@employee.BirthDate</td>
+                        <td>@employee.HireDate</td>
+                        <td>@employee.Address</td>
+                        <td>@employee.City</td>
+                        <td>@employee.Region</td>
+                        <td>@employee.PostalCode</td>
+                        <td>@employee.Country</td>
+                        <td>@employee.HomePhone</td>
+                        <td>@employee.Extension</td>
+                        <td>@employee.Notes</td>
+                        <td>@employee.ReportsTo</td>
+                        <td>
+                            <a href="UpdateAnEmployeeForm?employeeId=@employee.EmployeeId" class="btn btn-outline-primary d-flex align-items-center justify-content-center">
+                               <i class="fas fa-edit ml-1"></i>Update
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@*
+<div class="text-center">
+<h1 class="display-4">Welcome</h1>
+<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<h1> Home Page</h1>
+
+
+<br />
+<a href="home/GetProducts">GetProducts</a>
+<br />
+<a href="home/GetCategories">GetCategories</a>
+<br />
+<a href="home/GetSuppliers">GetSuppliers</a>
+<br />
+
+<a href="home/GetCustomers">GetCustomers</a>
+<br />
+
+<a href="home/GetEmployees">GetEmployees</a>
+<br />
+
+<a href="home/GetShippers">GetShippers</a>
+<br />
+
+<a href="home/GetOrders">GetOrders</a>
+<br />
+
+<a href="home/GetOrderDetails">GetOrderDetails</a>
+<br />
+
+
+<a href="home/InsertAProductForm">InsertProduct</a>
+<br />
+
+<a href="home/InsertACategoryForm">InsertCategory</a>
+<br />
+
+<a href="home/InsertASupplierForm">InsertSupplier</a>
+<br />
+
+<a href="home/InsertACustomerForm">InsertCustomer</a>
+<br />
+
+<a href="home/InsertAnEmployeeForm">InsertEmployee</a>
+<br />
+
+<a href="home/InsertAShipperForm">InsertShipper</a>
+<br />
+
+<a href="home/InsertAnOrderForm">InsertOrder</a>
+<br />
+
+<a href="home/InsertAnOrderDetailsForm">InsertOrderDetail</a>
+<br />
+
+.card-link:hover {
+        text-decoration: none;
+        transform: scale(1.05);
+    }
+
+<br />
+<br />
+*@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+
+        .card {
+            <!-- width: 80%;
+            max-width: 400px; -->
+            padding: 5rem 2.5rem;
+            border-radius: 1rem;
+            border: 1px solid transparent;
+            backdrop-filter: blur(1rem);
+            box-shadow: 1.3rem 1.3rem 1.3rem rgba(0,0,0,0.5)
+        }
+
+        .cb1 {
+            background-color: rgba(225,225,225,0.1)
+        }
+    </style>
+</head>
+
+
+<div class="container" style=" background-image: url('C:\Users\Rohit\Downloads\Mountain.jpg'); background-size: cover; background-position: center;">
+    <div class="text-center mb-5">
+        <h1 class="display-4">Northwind Project</h1>
+        <p class="lead">Explore and manage your data with ease.</p>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class=" col-md-4  mb-4 ">
+            <div class="card cb1">
+                <div class="card-body">
+                    <h5 class="card-title text-white">Products</h5>
+                    <p class="card-text text-white">Explore our wide range of products.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="home/GetProducts" class="btn btn-outline-dark stretched-link card-link text-white"><i class="fa-solid fa-box-open"></i> Go to Products</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card cb1">
+                <div class="card-body">
+                    <h5 class="card-title text-white">Categories</h5>
+                    <p class="card-text text-white">Explore different product categories.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="home/GetCategories" class="btn btn-outline-dark stretched-link card-link text-white"><i class="fa-solid fa-list"></i> Go to Categories</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card cb1">
+                <div class="card-body">
+                    <h5 class="card-title text-white">Suppliers</h5>
+                    <p class="card-text text-white">Browse our list of suppliers.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="home/GetSuppliers" class="btn btn-outline-dark stretched-link card-link text-white"><i class="fa-solid fa-truck-fast"></i> Go to Suppliers</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more cards for other links -->
+        <div class="col-md-4 mb-4">
+            <div class="card cb1">
+                <div class="card-body">
+                    <h5 class="card-title text-white">Customers</h5>
+                    <p class="card-text text-white">Explore our list of customers.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="home/GetCustomers" class="btn btn-outline-dark stretched-link card-link text-white"><i class="fa-solid fa-users"></i> Go to Customers</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card cb1">
+                <div class="card-body">
+                    <h5 class="card-title text-white">Employees</h5>
+                    <p class="card-text text-white">Explore our employee database.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="home/GetEmployees" class="btn btn-outline-dark stretched-link card-link text-white"><i class="fa-solid fa-user-tie"></i> Go to Employees</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card cb1">
+                <div class="card-body">
+                    <h5 class="card-title text-white">Shippers</h5>
+                    <p class="card-text text-white">Browse our list of shippers.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="home/GetShippers" class="btn btn-outline-dark stretched-link card-link text-white"><i class="fa-brands fa-docker"></i> Go to Shippers</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card cb1">
+                <div class="card-body">
+                    <h5 class="card-title text-white">Orders</h5>
+                    <p class="card-text text-white">Explore our list of orders.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="home/GetOrders" class="btn btn-outline-dark stretched-link card-link text-white"><i class="fa-solid fa-clipboard"></i> Go to Orders</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card cb1">
+                <div class="card-body">
+                    <h5 class="card-title text-white">Order Details</h5>
+                    <p class="card-text text-white">Explore the details of orders.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="home/GetOrderDetails" class="btn btn-outline-dark stretched-link card-link text-white"><i class="fa-solid fa-paste"></i> Go to Order Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more cards for other links -->
+    </div>
+</div>
+</div>
+</div>
+
+
+</html>

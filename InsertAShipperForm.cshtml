@@ -1,0 +1,33 @@
+﻿@page
+@model NorthwindProject.Views.Home.InsertAShipperFormModel
+@{
+}
+<h2>Insert a New Shipper</h2>
+
+<form action="InsertAShipper" method="post" onsubmit="return validatePhone()">
+    Shipper Id <br />
+    <input type="number" name="shipperId" required /> <br />
+    Company Name <br />
+    <input type="text" name="companyName" required/> <br />
+    Phone <br />
+    <input type="text" id="phone" name="phone" required /> <br />
+    <span id="phoneError" style="color: red;"></span> <br />
+    <br />
+    <input type="submit" value="Insert" /> <input type="reset" value="Reset" />
+</form>
+
+<script>
+    function validatePhone() {
+        var phoneInput = document.getElementById('phone');
+        var errorText = document.getElementById('phoneError');
+        var phonePattern = /\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/; // Regex pattern for typical US phone number
+        errorText.textContent = ''; // Clear previous errors
+
+        if (!phonePattern.test(phoneInput.value)) {
+            errorText.textContent = 'Invalid phone number format. Expected format: 123-456-7890 or (123) 456-7890';
+            return false; // Prevent form submission
+        }
+
+        return true; // Allow form submission if the phone number is valid
+    }
+</script>

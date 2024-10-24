@@ -1,0 +1,29 @@
+﻿@page
+@model NorthwindProject.Views.Home.UpdateAnOrderDetailFormModel
+@{
+}
+<h2>Update an Order Detail</h2>
+<h4>Primary Key: @ViewBag.ListOfOrderDetails[0].OrderId ,@ViewBag.ListOfOrderDetails[0].ProductId </h4>
+
+<form action="UpdateAnOrderDetail" method="Post">
+
+    <input type="hidden" name="orderId" value="@ViewBag.ListOfOrderDetails[0].OrderId" />
+    <input type="hidden" name="productId" value="@ViewBag.ListOfOrderDetails[0].ProductId" />
+
+    Order ID: @ViewBag.ListofOrderDetails[0].OrderId <br /><br />
+
+    Product ID: @ViewBag.ListOfOrderDetails[0].ProductId <br /><br />
+
+    Unit Price <br />
+    <input type="text" id="unitPrice" name="unitPrice" value="@ViewBag.ListOfOrderDetails[0].UnitPrice" /> <br />
+
+    Quantity <br />
+    <input type="text" id="quantity" name="quantity" value="@ViewBag.ListOfOrderDetails[0].Quantity" /> <br />
+
+    Discount <br />
+    <input type="text" id="discount" name="discount" value="@ViewBag.ListOfOrderDetails[0].Discount" /> <br />
+    <br />
+
+    <input type="submit" />    <input type="reset" />
+
+</form>

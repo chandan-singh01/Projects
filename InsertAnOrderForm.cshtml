@@ -1,0 +1,73 @@
+﻿@page
+@model NorthwindProject.Views.Home.InsertAnOrderFormModel
+@{
+}
+
+<h2>Insert a New Order</h2>
+
+<form action="InsertAnOrder" method="Post">
+    Customer ID <br />
+    <select name="customerId" id="customerId" class="form-control">
+        @foreach (var customer in ViewBag.ListOfCustomers)
+        {
+            <option value="@customer.CustomerId">@customer.CustomerId</option>
+        }
+    </select>
+    <br />
+
+    Employee ID <br />
+    <select name="employeeId" id="employeeId" class="form-control">
+        @foreach (var employee in ViewBag.ListOfEmployees)
+        {
+            <option value="@employee.EmployeeId">@employee.EmployeeId</option>
+        }
+    </select>
+    <br />
+
+    Order Date <br />
+    <input type="date" name="orderDate" id="orderDate" class="form-control" required/>
+    <br />
+
+    Required Date <br />
+    <input type="date" name="requiredDate" id="requiredDate" class="form-control" required/>
+    <br />
+
+    Shipped Date <br />
+    <input type="date" name="shippedDate" id="shippedDate" class="form-control" required/>
+    <br />
+
+    Ship Via <br />
+    <input type="text" name="shipvia" id="shipvia" class="form-control" placeholder="ShipVia" required/>
+    <br />
+
+    Freight <br />
+    <input type="text" name="freight" id="freight" class="form-control" placeholder="Enter freight amount" required/>
+    <br />
+
+    Ship Name <br />
+    <input type="text" name="shipName" id="shipName" class="form-control" placeholder="Enter ship name" required/>
+    <br />
+
+    Ship Address <br />
+    <input type="text" name="shipAddress" id="shipAddress" class="form-control" placeholder="Enter ship address" required/>
+    <br />
+
+    Ship City <br />
+    <input type="text" name="shipCity" id="shipCity" class="form-control" placeholder="Enter ship city" required/>
+    <br />
+
+    Ship Region <br />
+    <input type="text" name="shipRegion" id="shipRegion" class="form-control" placeholder="Enter ship region" required/>
+    <br />
+
+    Ship Postal Code <br />
+    <input type="text" name="shipPostalCode" id="shipPostalCode" class="form-control" placeholder="Enter postal code" required/>
+    <br />
+
+    Ship Country <br />
+    <input type="text" name="shipCountry" id="shipCountry" class="form-control" placeholder="Enter ship country" required/>
+    <br />
+
+    <input type="submit" value="Submit Order" class="btn btn-primary" />
+    <input type="reset" value="Reset" class="btn btn-secondary" />
+</form>

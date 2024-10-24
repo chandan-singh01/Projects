@@ -1,0 +1,14 @@
+﻿@page
+@model NorthwindProject.Views.Home.InsertACategoryFormModel
+@{
+}
+<h2>Insert a New Category</h2>
+
+<form action="InsertACategory" method="Post">
+    Category Name <br />
+    <input type="text" name="categoryName" required/> <br />
+    Description <br />
+    <input type="text" name="description" required /> <br />
+    <br />
+    <input type="submit" value="Insert" />    <input type="reset" value="Reset" />
+</form>

@@ -1,0 +1,24 @@
+﻿@page
+@model NorthwindProject.Views.Home.UpdateACategoryFormModel
+@{
+}
+
+<h2>Update Categories</h2>
+
+
+@foreach (var category in ViewBag.ListOfCategories)
+{
+    <h4>Category ID: @category.CategoryId</h4>
+
+    <form action="UpdateACategory" method="Post">
+        <input type="hidden" name="categoryId" value="@category.CategoryId" />
+
+        Category Name <br />
+        <input type="text" name="categoryName" value="@category.CategoryName" /> <br />
+        Description <br />
+        <input type="text" name="description" value="@category.Description" /> <br />
+        <br />
+        <input type="submit" value="Update" />    <input type="reset" value="Reset" />
+    </form>
+    <hr />
+}

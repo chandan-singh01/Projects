@@ -1,0 +1,139 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<html>
+<head>
+    <title>Product Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+
+
+
+    <a href="InsertAProductForm" class="btn btn-outline-dark text-white ">
+        <i class="fas fa-plus"></i> Insert Product
+    </a>
+
+
+
+
+
+
+
+
+
+
+    <div class="container mt-3">
+        <!-- Filter Button -->
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterOptions" aria-expanded="false" aria-controls="filterOptions">
+            Filter
+        </button>
+        <!-- Filter Form (Collapsed by default) -->
+        <div class="collapse" id="filterOptions">
+            <form method="get" action="FilterProducts" class="mb-3">
+                <h3>Filter Products</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="productNameInput" class="form-label">Product Name</label>
+                            <input type="text" class="form-control" id="productNameInput" name="productName" placeholder="Enter product name">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label for="minPriceInput" class="form-label">Minimum Price</label>
+                            <input type="number" class="form-control" id="minPriceInput" name="minPrice" placeholder="Enter minimum price" step="0.01" min="0">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label for="maxPriceInput" class="form-label">Maximum Price</label>
+                            <input type="number" class="form-control" id="maxPriceInput" name="maxPrice" placeholder="Enter maximum price" step="0.01" min="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-success">Apply</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+                <style>
+                    .table {
+                        width: 100%;
+                        border-collapse: collapse;
+                    }
+
+                        .table th, .table td {
+                            padding: 8px;
+                            text-align: left;
+                        }
+
+                        .table th {
+                            background-color: #f2f2f2;
+                            color: #333;
+                        }
+
+                        .table tbody tr:hover {
+                            background-color: #f5f5f5;
+                        }
+
+                        .table tbody tr:nth-child(even) {
+                            background-color: #fff;
+                        }
+
+                    .table-striped tbody tr:nth-child(odd) {
+                        background-color: #f2f2f2;
+                    }
+
+                    .table-bordered th, .table-bordered td {
+                        border: 1px solid #ddd;
+                    }
+
+                    .table-hover tbody tr:hover {
+                        background-color: #e6e6e6;
+                    }
+                </style>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Supplier ID</th>
+                    <th>Category ID</th>
+                    <th>Unit Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in ViewBag.ListOfProducts)
+                {
+                    <tr>
+                        <td>@p.ProductId</td>
+                        <td>@p.ProductName</td>
+                        <td>@p.SupplierId</td>
+                        <td>@p.CategoryId</td>
+                        <td>@p.UnitPrice</td>
+                        <td>
+                            <a href="UpdateAProductForm?aProductId=@p.ProductId" class="btn btn-outline-primary d-flex align-items-center justify-content-center">
+                                <i class="fa-solid fa-pen-to-square me-2"></i>Update
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

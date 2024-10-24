@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <div class="container mt-3">
+        <!-- Filter Button -->
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterOptions" aria-expanded="false" aria-controls="filterOptions">
+            Filter
+        </button>
+        <!-- Filter Form (Collapsed by default) -->
+        <div class="collapse" id="filterOptions">
+            <form method="get" action="FilterSuppliers" class="mb-3">
+                <h3>Filter Suppliers</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="companyNameInput" class="form-label">Company Name</label>
+                            <input type="text" class="form-control" id="companyNameInput" name="companyName" placeholder="Enter company name">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="cityInput" class="form-label">City</label>
+                            <input type="text" class="form-control" id="cityInput" name="city" placeholder="Enter city">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="countryInput" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="countryInput" name="country" placeholder="Enter country">
+                        </div>
+                    </div>
+                    <!-- Add more filter options as needed -->
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-success">Apply</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Supplier ID</th>
+                    <th>Company Name</th>
+                    <th>Contact Name</th>
+                    <th>Contact Title</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Region</th>
+                    <th>Postal Code</th>
+                    <th>Country</th>
+                    <th>Phone</th>
+                    <th>Fax</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var s in ViewBag.ListOfSuppliers)
+                {
+                    <tr>
+                        <td>@s.SupplierId</td>
+                        <td>@s.CompanyName</td>
+                        <td>@s.ContactName</td>
+                        <td>@s.ContactTitle</td>
+                        <td>@s.Address</td>
+                        <td>@s.City</td>
+                        <td>@s.Region</td>
+                        <td>@s.PostalCode</td>
+                        <td>@s.Country</td>
+                        <td>@s.Phone</td>
+                        <td>@s.Fax</td>
+                        <td><a href="UpdateASupplierForm?supplierId=@s.SupplierId" class="btn btn-outline-primary d-flex align-items-center"><i class="fas fa-pen me-2"></i>Update</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

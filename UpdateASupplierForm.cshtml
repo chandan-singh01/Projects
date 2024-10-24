@@ -1,0 +1,41 @@
+﻿@page
+@model NorthwindProject.Views.Home.UpdateASupplierFormModel
+@{
+}
+
+<h2>Update Suppliers</h2>
+
+
+@foreach (var supplier in ViewBag.ListOfSuppliers)
+{
+    <h4>Supplier ID: @supplier.SupplierId</h4>
+
+    <form action="UpdateASupplier" method="Post">
+        <input type="hidden" name="supplierId" value="@supplier.SupplierId" />
+
+        Company Name <br />
+        <input type="text" name="companyName" value="@supplier.CompanyName" /> <br />
+        Contact Name <br />
+        <input type="text" name="contactName" value="@supplier.ContactName" /> <br />
+        Contact Title <br />
+        <input type="text" name="contactTitle" value="@supplier.ContactTitle" /> <br />
+        Address <br />
+        <input type="text" name="address" value="@supplier.Address" /> <br />
+        City <br />
+        <input type="text" name="city" value="@supplier.City" /> <br />
+        Region <br />
+        <input type="text" name="region" value="@supplier.Region" /> <br />
+        Postal Code <br />
+        <input type="text" name="postalCode" value="@supplier.PostalCode" /> <br />
+        Country <br />
+        <input type="text" name="country" value="@supplier.Country" /> <br />
+        Phone <br />
+        <input type="text" name="phone" value="@supplier.Phone" /> <br />
+        Fax <br />
+        <input type="text" name="fax" value="@supplier.Fax" /> <br />
+        <br />
+        <input type="submit" value="Update" />
+        <input type="reset" value="Reset" />
+    </form>
+    <hr />
+}

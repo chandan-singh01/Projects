@@ -1,0 +1,43 @@
+﻿@page
+@model NorthwindProject.Views.Home.InsertAnOrderDetailsFormModel
+@{
+}
+<h2>Insert a New Order Detail</h2>
+
+<form asp-controller="home" asp-action="InsertAnOrderDetails" method="post">
+
+    Order ID <br />
+    <select name="orderId" id="orderId" class="form-control">
+        @foreach (var order in ViewBag.ListOfOrders)
+        {
+            <option value="@order.OrderId" >@order.OrderId</option>
+        }
+    </select>
+    <br />
+
+    Product ID <br />
+    <select name="productId" id="productId" class="form-control">
+        @foreach (var product in ViewBag.ListOfProducts)
+        {
+            <option value="@product.ProductId">@product.ProductId </option>
+        }
+    </select>
+    <br />
+
+   
+
+    Unit Price <br />
+    <input type="text" id="UnitPrice" name="UnitPrice" required/> <br />
+
+    Quantity <br />
+    <input type="text" id="Quantity" name="Quantity" required/> <br />
+
+    Discount <br />
+    <input type="text" id="Discount" name="Discount" required/> <br />
+
+    <br /><br />
+
+    <input type="submit" />
+    <input type="reset" />
+
+</form>

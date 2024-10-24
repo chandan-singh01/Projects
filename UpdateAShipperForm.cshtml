@@ -1,0 +1,20 @@
+﻿@{
+}
+
+<h2>Update a Shipper</h2>
+<h4>Primary Key: @ViewBag.ListOfShippers[0].ShipperId </h4>
+
+<form action="UpdateAShipper" method="Post">
+
+    <input type="hidden" name="shipperId" value="@ViewBag.ListOfShippers[0].ShipperId" />
+
+    Company Name <br />
+    <input type="text" name="companyName" value="@ViewBag.ListOfShippers[0].CompanyName" /> <br />
+
+    Phone <br />
+    <input type="text" name="phone" value="@ViewBag.ListOfShippers[0].Phone" /> <br />
+    <br />
+
+    <input type="submit" />    <input type="reset" />
+
+</form>

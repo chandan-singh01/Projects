@@ -1,0 +1,48 @@
+﻿@page
+@model NorthwindProject.Views.Home.UpdateACustomerFormModel
+@{
+}
+
+<h2>Update a Customer</h2>
+<h4>Customer ID: @ViewBag.ListOfCustomers[0].CustomerId </h4>
+
+<form action="UpdateACustomer" method="Post">
+
+    <input type="hidden" name="customerId" value="@ViewBag.ListOfCustomers[0].CustomerId" />
+
+    Company Name <br />
+    <input type="text" id="companyName" name="companyName" value="@ViewBag.ListOfCustomers[0].CompanyName" /> <br />
+
+    Contact Name <br />
+    <input type="text" id="contactName" name="contactName" value="@ViewBag.ListOfCustomers[0].ContactName" /> <br />
+
+    Contact Title <br />
+    <input type="text" id="contactTitle" name="contactTitle" value="@ViewBag.ListOfCustomers[0].ContactTitle" /> <br />
+
+    Address <br />
+    <input type="text" id="address" name="address" value="@ViewBag.ListOfCustomers[0].Address" /> <br />
+
+    City <br />
+    <input type="text" id="city" name="city" value="@ViewBag.ListOfCustomers[0].City" /> <br />
+
+    Region <br />
+    <input type="text" id="region" name="region" value="@ViewBag.ListOfCustomers[0].Region" /> <br />
+
+    Postal Code <br />
+    <input type="text" id="postalCode" name="postalCode" value="@ViewBag.ListOfCustomers[0].PostalCode" /> <br />
+
+    Country <br />
+    <input type="text" id="country" name="country" value="@ViewBag.ListOfCustomers[0].Country" /> <br />
+
+    Phone <br />
+    <input type="text" id="phone" name="phone" value="@ViewBag.ListOfCustomers[0].Phone" /> <br />
+
+    Fax <br />
+    <input type="text" id="fax" name="fax" value="@ViewBag.ListOfCustomers[0].Fax" /> <br />
+
+    <br />
+
+    <input type="submit" />
+    <input type="reset" />
+</form>
+

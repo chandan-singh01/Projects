@@ -1,0 +1,79 @@
+﻿@page
+@model NorthwindProject.Views.Home.UpdateAnOrderFormModel
+@{
+}
+<h2>Update an Order</h2>
+<h4>Primary Key: @ViewBag.ListOfOrders[0].OrderId </h4>
+
+<form action="UpdateAnOrder" method="POST">
+    <input type="hidden" name="orderId" value="@ViewBag.ListOfOrders[0].OrderId" />
+
+    Customer Id <br />
+    <select name="customerId">
+        @foreach (var c in ViewBag.ListOfCustomers)
+        {
+            @if (c.CustomerId == @ViewBag.ListOfOrders[0].CustomerId)
+            {
+                <option value="@c.CustomerId" selected>@c.CustomerId @c.CompanyName</option>
+            }
+            else
+            {
+                <option value="@c.CustomerId">@c.CustomerId @c.CompanyName</option>
+            }
+        }
+    </select>
+    <br /><br />
+
+    Employee Id <br />
+    <select name="employeeId">
+        @foreach (var e in ViewBag.ListOfEmployees)
+        {
+            @if (e.EmployeeId == @ViewBag.ListOfOrders[0].EmployeeId)
+            {
+                <option value="@e.EmployeeId" selected>@e.EmployeeId @e.FirstName @e.LastName</option>
+            }
+            else
+            {
+                <option value="@e.EmployeeId">@e.EmployeeId @e.FirstName @e.LastName</option>
+            }
+        }
+    </select>
+    <br /><br />
+
+    Order Date <br />
+    <input type="text" id="orderDate" name="orderDate" value="@ViewBag.ListOfOrders[0].OrderDate" /> <br /><br />
+
+    Required Date <br />
+    <input type="text" id="requiredDate" name="requiredDate" value="@ViewBag.ListOfOrders[0].RequiredDate" /> <br /><br />
+
+    Shipped Date <br />
+    <input type="text" id="shippedDate" name="shippedDate" value="@ViewBag.ListOfOrders[0].ShippedDate" /> <br /><br />
+
+    Ship Via <br />
+    <input type="text" id="shipVia" name="shipVia" value="@ViewBag.ListOfOrders[0].ShipVia" /> <br /><br />
+
+    Freight <br />
+    <input type="text" id="freight" name="freight" value="@ViewBag.ListOfOrders[0].Freight" /> <br /><br />
+
+    Ship Name <br />
+    <input type="text" id="shipName" name="shipName" value="@ViewBag.ListOfOrders[0].ShipName" /> <br /><br />
+
+    Ship Address <br />
+    <input type="text" id="shipAddress" name="shipAddress" value="@ViewBag.ListOfOrders[0].ShipAddress" /> <br /><br />
+
+    Ship City <br />
+    <input type="text" id="shipCity" name="shipCity" value="@ViewBag.ListOfOrders[0].ShipCity" /> <br /><br />
+
+    Ship Region <br />
+    <input type="text" id="shipRegion" name="shipRegion" value="@ViewBag.ListOfOrders[0].ShipRegion" /> <br /><br />
+
+    Ship Postal Code <br />
+    <input type="text" id="shipPostalCode" name="shipPostalCode" value="@ViewBag.ListOfOrders[0].ShipPostalCode" /> <br /><br />
+
+    Ship Country <br />
+    <input type="text" id="shipCountry" name="shipCountry" value="@ViewBag.ListOfOrders[0].ShipCountry" /> <br /><br />
+
+    <input type="submit" value="Update" />
+    <input type="reset" value="Reset" />
+</form>
+
